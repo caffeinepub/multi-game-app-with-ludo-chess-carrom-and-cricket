@@ -1,0 +1,22 @@
+{
+  "frontend/src/index.css": "Global styles with warm arcade theme, OKLCH color system, and new glassmorphism utilities for Ludo (translucent panels, backdrop blur, glass buttons, and background treatment using generated assets).",
+  "frontend/src/App.tsx": "Main app component managing view state navigation between home screen and four game modes (Ludo, Chess, Carrom, Cricket).",
+  "frontend/src/screens/HomeScreen.tsx": "Home screen with hero section featuring centered phone mockup image, bold headline \"LUDO GAME SOURCE CODE\", Quick Play menu, stats summary for authenticated users, and game selection grid with navigation to all four game modes.",
+  "frontend/src/screens/GameShell.tsx": "Reusable layout wrapper for all game screens with optional glassmorphism header treatment, back button, title, icon, and action slots.",
+  "frontend/src/components/auth/LoginButton.tsx": "Login/logout button component using Internet Identity with loading states and query cache clearing on logout.",
+  "frontend/src/components/stats/StatsSummary.tsx": "Stats display component showing games played, wins, and win rate for all four game modes with loading states.",
+  "frontend/src/hooks/useUserStats.ts": "React Query hooks for fetching and updating user game statistics from the backend.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for user profile management (get and save caller profile).",
+  "frontend/src/games/ludo/LudoScreen.tsx": "Ludo game screen with glassmorphism-styled UI (translucent panels, blurred background), player setup, dice rolling, turn management, and stats tracking on game completion.",
+  "frontend/src/games/ludo/ludoRules.ts": "Pure Ludo game logic including initialization, dice rolling, piece movement, capturing, and win condition checking.",
+  "frontend/src/games/ludo/LudoBoard.tsx": "SVG-based Ludo board renderer displaying pieces, home areas, track positions, and handling piece selection.",
+  "frontend/src/games/chess/ChessScreen.tsx": "Chess game screen with move selection, check/checkmate detection, resignation option, and stats tracking.",
+  "frontend/src/games/chess/chessRules.ts": "Complete chess rules engine with piece movement validation, check detection, checkmate detection, and move execution with proper TypeScript typing for Color type.",
+  "frontend/src/games/chess/ChessBoard.tsx": "Interactive 8x8 chess board with piece symbols, square selection highlighting, and click handling.",
+  "frontend/src/games/carrom/CarromScreen.tsx": "Carrom game screen with player setup, angle/power controls, shot execution, scoring system, and stats tracking.",
+  "frontend/src/games/carrom/carromPhysics.ts": "Simplified 2D physics simulation for carrom including coin collisions, pocketing, and score calculation.",
+  "frontend/src/games/carrom/CarromBoardCanvas.tsx": "Canvas-based carrom board renderer showing coins, pockets, aim line, and striker position.",
+  "frontend/src/games/cricket/CricketScreen.tsx": "Cricket game screen with innings management, shot selection, scoreboard display, and stats tracking.",
+  "frontend/src/games/cricket/cricketEngine.ts": "Deterministic cricket game engine with seeded RNG, shot outcomes based on risk levels, and match winner determination.",
+  "frontend/src/components/home/QuickPlayMenu.tsx": "Quick Play menu component with enhanced styling displaying four game launch buttons (Ludo, Chess, Carrom, Cricket) with icons and hover effects."
+}

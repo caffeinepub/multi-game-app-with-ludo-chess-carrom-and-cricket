@@ -1,2 +1,3 @@
-# multi-game-app-with-ludo-chess-carrom-and-cricket
-Exported from Caffeine project: Multi-game app with Ludo, Chess, Carrom, and Cricket
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

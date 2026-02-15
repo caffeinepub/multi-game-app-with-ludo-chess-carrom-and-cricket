@@ -1,0 +1,115 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "UI refresh: Home hero redesign, Ludo glassmorphism styling, remove 'Create Game', add new static assets",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "summary": "Redesign HomeScreen to match the reference layout (header + centered phone hero image + bold headline/subheadline) while keeping existing navigation via onSelectGame(game).",
+      "acceptanceCriteria": [
+        "HomeScreen remains the app landing screen and still allows entering each of the four game modes using the existing onSelectGame(game) callback.",
+        "HomeScreen hero section is visually reworked to resemble the reference: header + prominent hero image + headline + subheadline, and is responsive for mobile widths.",
+        "Any user-facing text added/modified for this change is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/HomeScreen.tsx",
+          "operation": "modify",
+          "description": "Rework HomeScreen structure to a cleaner top header and a prominent hero section that uses the new centered device mock image (frontend/public/assets/generated/home-hero-phone.dim_900x900.png) and updated headline/subheadline text; keep all game navigation wired through the existing onSelectGame(game) flow. Compose using shadcn-ui (Card/Button/Badge) components; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/home/QuickPlayMenu.tsx",
+          "operation": "modify",
+          "description": "Adjust spacing/typography/variants as needed so QuickPlayMenu visually fits the new Home hero layout without changing its onSelectGame behavior. Compose using shadcn-ui Button; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust global utility classes needed to support the new Home hero styling (e.g., hero spacing, subtle background treatments) while keeping existing theme variables intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Apply a modern glassmorphism look to the Ludo pre-game setup UI and in-game HUD panels without changing gameplay logic.",
+      "acceptanceCriteria": [
+        "LudoScreen (both the pre-game setup state and active game state) uses a glassmorphism-styled layout (translucent panels, rounded corners, subtle blur/gradient background).",
+        "Ludo gameplay (dice roll, turn logic, piece movement, win detection) behaves exactly as before; only UI/visual presentation changes.",
+        "Any user-facing text added/modified for this change is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/games/ludo/LudoScreen.tsx",
+          "operation": "modify",
+          "description": "Update LudoScreen layout/styling for both setup and active states to glassmorphism: use the new background image (frontend/public/assets/generated/ludo-glass-bg.dim_1920x1080.png), place key UI areas (setup card, turn/dice HUD, win panel) into translucent rounded panels with blur and subtle borders, and style the primary CTA buttons prominently. Do not change any Ludo rules/logic functions usage. Compose using shadcn-ui Card/Button/Badge/Select; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add reusable glassmorphism utility classes (e.g., translucent surface, backdrop blur, soft shadow) and a helper class for the Ludo background treatment; keep changes limited to styling utilities."
+        },
+        {
+          "path": "frontend/src/screens/GameShell.tsx",
+          "operation": "modify",
+          "description": "Allow LudoScreen (and only where used) to apply a glassmorphism-friendly header treatment (e.g., optional transparent/blur header variant or className passthrough) without changing navigation behavior. Compose using existing shadcn-ui Button; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Remove the 'Create Game' option from all visible UI while keeping existing local start/new/replay flows intact.",
+      "acceptanceCriteria": [
+        "No visible UI element in the app contains the label 'Create Game'.",
+        "Users can still start and replay games in all modes (Ludo/Chess/Carrom/Cricket) using the existing local-play flows.",
+        "No backend changes are required for this removal."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/HomeScreen.tsx",
+          "operation": "modify",
+          "description": "Audit and remove/replace any user-facing 'Create Game' wording or actions that may appear on the Home screen (including headings, buttons, menus), ensuring the primary actions remain local-play (e.g., Start Game / New Game / Quick Play) and remain in English. Compose using shadcn-ui components where applicable; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/games/ludo/LudoScreen.tsx",
+          "operation": "modify",
+          "description": "Audit and remove/replace any 'Create Game' label that may appear in Ludo UI states; confirm existing local-play flows remain available (Start Game/New Game/Play Again) with no gameplay changes. Compose using shadcn-ui components where applicable; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Add and wire new static image assets for the updated Home hero and Ludo glassmorphism styling under frontend/public/assets/generated.",
+      "acceptanceCriteria": [
+        "All newly generated images are saved under frontend/public/assets/generated and referenced via /assets/generated/... paths (no backend image serving).",
+        "HomeScreen and LudoScreen successfully load and render the newly added assets without broken links."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/ludo-glass-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add required static asset: Soft gradient background with subtle bokeh/light streaks (ludo-glass-bg.dim_1920x1080.png)."
+        },
+        {
+          "path": "frontend/public/assets/generated/home-hero-phone.dim_900x900.png",
+          "operation": "create",
+          "description": "Add required static asset: Centered smartphone device mock with a generic Ludo-themed screen (home-hero-phone.dim_900x900.png)."
+        },
+        {
+          "path": "frontend/public/assets/generated/glass-panel-texture.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add required static asset: Abstract soft gradient texture for glass panels (glass-panel-texture.dim_1200x800.png)."
+        },
+        {
+          "path": "frontend/src/screens/HomeScreen.tsx",
+          "operation": "modify",
+          "description": "Wire HomeScreen hero to load and display the new asset from frontend/public/assets/generated/home-hero-phone.dim_900x900.png using the /assets/generated/... path. Compose using shadcn-ui components where applicable; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/games/ludo/LudoScreen.tsx",
+          "operation": "modify",
+          "description": "Wire LudoScreen to use frontend/public/assets/generated/ludo-glass-bg.dim_1920x1080.png as the screen background and frontend/public/assets/generated/glass-panel-texture.dim_1200x800.png as an overlay/texture in glass panels (via /assets/generated/... paths). Compose using shadcn-ui components where applicable; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

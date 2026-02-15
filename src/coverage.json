@@ -1,0 +1,95 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T19:45:49.126Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-12",
+        "summary": "Update the Home screen UI layout and styling to closely match the look/structure shown in the uploaded reference image (Screenshot_20260131_000048.jpg): a clean top header, a prominent hero section with a centered device/phone mock image, and large, bold headline + subheadline text; keep the existing ability to navigate into Ludo/Chess/Carrom/Cricket via the existing onSelectGame(game) flow.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/HomeScreen.tsx",
+          "frontend/src/components/home/QuickPlayMenu.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/HomeScreen.tsx",
+          "frontend/src/components/home/QuickPlayMenu.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Apply the visual style shown in the uploaded reference image (Screenshot_20260129_125437.jpg) to the Ludo game experience: use a modern glassmorphism look (blurred/soft gradient background, translucent rounded card panels, strong primary CTA button) for the Ludo pre-game setup screen and in-game HUD panels, without changing Ludo gameplay rules.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/games/ludo/LudoScreen.tsx",
+          "frontend/src/index.css",
+          "frontend/src/screens/GameShell.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/games/ludo/LudoScreen.tsx",
+          "frontend/src/index.css",
+          "frontend/src/screens/GameShell.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Remove the 'Create Game' option from the app UI wherever it appears (buttons, menus, headings, or navigation actions), ensuring users can still start local games via existing 'Start Game/New Game/Quick Play' flows.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/HomeScreen.tsx",
+          "frontend/src/games/ludo/LudoScreen.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/HomeScreen.tsx",
+          "frontend/src/games/ludo/LudoScreen.tsx"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Add new static visual assets to support the updated Home hero and Ludo glassmorphism styling, store them under frontend/public/assets/generated, and wire the updated screens to use them directly from that folder.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/ludo-glass-bg.dim_1920x1080.png",
+          "frontend/public/assets/generated/home-hero-phone.dim_900x900.png",
+          "frontend/public/assets/generated/glass-panel-texture.dim_1200x800.png",
+          "frontend/src/screens/HomeScreen.tsx",
+          "frontend/src/games/ludo/LudoScreen.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/ludo-glass-bg.dim_1920x1080.png",
+          "frontend/public/assets/generated/home-hero-phone.dim_900x900.png",
+          "frontend/public/assets/generated/glass-panel-texture.dim_1200x800.png",
+          "frontend/src/screens/HomeScreen.tsx",
+          "frontend/src/games/ludo/LudoScreen.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/glass-panel-texture.dim_1200x800.png",
+    "frontend/public/assets/generated/home-hero-phone.dim_900x900.png",
+    "frontend/public/assets/generated/ludo-glass-bg.dim_1920x1080.png",
+    "frontend/src/components/home/QuickPlayMenu.tsx",
+    "frontend/src/games/ludo/LudoScreen.tsx",
+    "frontend/src/index.css",
+    "frontend/src/screens/GameShell.tsx",
+    "frontend/src/screens/HomeScreen.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Game application that includes multiple games: Ludo, Chess, Carrom, and Cricket.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Soft gradient background with subtle bokeh/light streaks (ludo-glass-bg.dim_1920x1080.png)\n- Centered smartphone device mock with a generic Ludo-themed screen (home-hero-phone.dim_900x900.png)\n- Abstract soft gradient texture for glass panels (glass-panel-texture.dim_1200x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-unified-game-application-home-experience-that-lets-users-choose-between-four-game-modes-ludo-chess-carrom-and-cricket-and-provides-consistent-navigation-to-enter-exit-a-game-back-to-the-home-screen",
+      "title": "Create a unified game application home experience that lets users choose between four game modes: Ludo, Chess, Carrom, and Cricket, and provides consistent navigation to enter/exit a game back to the home screen.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-mvp-ludo-game-mode-playable-locally-on-a-single-device-with-2-4-players-including-basic-rules-dice-roll-piece-movement-along-a-track-capturing-opponent-pieces-and-win-condition-when-a-player-gets-all-pieces-home",
+      "title": "Implement an MVP Ludo game mode playable locally on a single device with 2–4 players, including basic rules: dice roll, piece movement along a track, capturing opponent pieces, and win condition when a player gets all pieces home.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-mvp-chess-game-mode-playable-locally-on-a-single-device-for-two-players-enforcing-standard-chess-movement-rules-turn-taking-captures-check-indication-and-game-end-on-checkmate-or-resignation",
+      "title": "Implement an MVP Chess game mode playable locally on a single device for two players, enforcing standard chess movement rules, turn-taking, captures, check indication, and game end on checkmate or resignation.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-mvp-carrom-game-mode-as-a-local-single-device-game-with-a-top-down-board-striker-aiming-adjustable-power-turn-taking-basic-collision-pocketing-and-simple-scoring-pocketed-pieces-add-points-fouls-remove-points-or-end-turn",
+      "title": "Implement an MVP Carrom game mode as a local single-device game with a top-down board, striker aiming, adjustable power, turn-taking, basic collision/pocketing, and simple scoring (pocketed pieces add points; fouls remove points or end turn).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-mvp-cricket-game-mode-as-a-simple-local-single-device-mini-game-with-innings-runs-wickets-and-a-clear-win-condition-the-gameplay-should-be-deterministic-and-skill-choice-driven-e-g-timing-based-batting-or-choice-based-shot-vs-bowl-without-requiring-real-time-multiplayer",
+      "title": "Implement an MVP Cricket game mode as a simple local single-device mini-game with innings, runs, wickets, and a clear win condition. The gameplay should be deterministic and skill/choice-driven (e.g., timing-based batting or choice-based shot vs bowl) without requiring real-time multiplayer.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-backend-data-model-and-api-to-persist-per-user-game-statistics-e-g-games-played-wins-losses-best-score-where-applicable-for-each-of-the-four-game-modes-and-display-these-stats-in-the-ui",
+      "title": "Add a simple backend data model and API to persist per-user game statistics (e.g., games played, wins, losses, best score where applicable) for each of the four game modes, and display these stats in the UI.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-coherent-visual-theme-for-the-entire-app-colors-typography-layout-and-components-appropriate-for-a-casual-multi-game-arcade-and-apply-it-consistently-across-the-home-screen-and-all-four-game-modes",
+      "title": "Establish a coherent visual theme for the entire app (colors, typography, layout, and components) appropriate for a casual multi-game arcade, and apply it consistently across the home screen and all four game modes.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-and-render-generated-static-visual-assets-icons-illustrations-for-the-four-game-modes-in-the-home-screen-and-where-appropriate-as-headers-within-each-game-mode-screen-store-these-assets-under-frontend-public-assets-generated",
+      "title": "Add and render generated static visual assets (icons/illustrations) for the four game modes in the home screen and (where appropriate) as headers within each game mode screen. Store these assets under frontend/public/assets/generated.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-homescreen-welcome-heading-element-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-div-1-h2-1-currently-showing-welcome-to-game-arcade-so-that-this-element-becomes-a-banner-slider-carousel-that-cycles-through-3-static-banner-images-for-ludo-chess-and-carrom",
+      "title": "Update the HomeScreen welcome heading element at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/h2[1]` (currently showing “Welcome to Game Arcade”) so that this element becomes a banner slider/carousel that cycles through 3 static banner images for Ludo, Chess, and Carrom.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-3-new-banner-images-as-static-assets-under-frontend-public-assets-generated-and-wire-the-homescreen-banner-slider-to-use-these-exact-filenames",
+      "title": "Add the 3 new banner images as static assets under `frontend/public/assets/generated/` and wire the HomeScreen banner slider to use these exact filenames.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-always-visible-quick-play-home-menu-on-the-homescreen-that-lets-players-jump-directly-into-each-of-the-four-game-modes-ludo-chess-carrom-cricket-with-one-click-tap-using-the-existing-onselectgame-game-navigation-flow",
+      "title": "Add a simple, always-visible “Quick Play” home menu on the HomeScreen that lets players jump directly into each of the four game modes (Ludo, Chess, Carrom, Cricket) with one click/tap, using the existing onSelectGame(game) navigation flow.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-screen-ui-layout-and-styling-to-closely-match-the-look-structure-shown-in-the-uploaded-reference-image-screenshot-20260131-000048-jpg-a-clean-top-header-a-prominent-hero-section-with-a-centered-device-phone-mock-image-and-large-bold-headline-subheadline-text-keep-the-existing-ability-to-navigate-into-ludo-chess-carrom-cricket-via-the-existing-onselectgame-game-flow",
+      "title": "Update the Home screen UI layout and styling to closely match the look/structure shown in the uploaded reference image (Screenshot_20260131_000048.jpg): a clean top header, a prominent hero section with a centered device/phone mock image, and large, bold headline + subheadline text; keep the existing ability to navigate into Ludo/Chess/Carrom/Cricket via the existing onSelectGame(game) flow.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-the-visual-style-shown-in-the-uploaded-reference-image-screenshot-20260129-125437-jpg-to-the-ludo-game-experience-use-a-modern-glassmorphism-look-blurred-soft-gradient-background-translucent-rounded-card-panels-strong-primary-cta-button-for-the-ludo-pre-game-setup-screen-and-in-game-hud-panels-without-changing-ludo-gameplay-rules",
+      "title": "Apply the visual style shown in the uploaded reference image (Screenshot_20260129_125437.jpg) to the Ludo game experience: use a modern glassmorphism look (blurred/soft gradient background, translucent rounded card panels, strong primary CTA button) for the Ludo pre-game setup screen and in-game HUD panels, without changing Ludo gameplay rules.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-create-game-option-from-the-app-ui-wherever-it-appears-buttons-menus-headings-or-navigation-actions-ensuring-users-can-still-start-local-games-via-existing-start-game-new-game-quick-play-flows",
+      "title": "Remove the 'Create Game' option from the app UI wherever it appears (buttons, menus, headings, or navigation actions), ensuring users can still start local games via existing 'Start Game/New Game/Quick Play' flows.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-new-static-visual-assets-to-support-the-updated-home-hero-and-ludo-glassmorphism-styling-store-them-under-frontend-public-assets-generated-and-wire-the-updated-screens-to-use-them-directly-from-that-folder",
+      "title": "Add new static visual assets to support the updated Home hero and Ludo glassmorphism styling, store them under frontend/public/assets/generated, and wire the updated screens to use them directly from that folder.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add Ludo game mode to the application",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add Chess game mode to the application",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add Carrom game mode to the application",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add Cricket game mode to the application",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create a unified game application that bundles and lets users select between Ludo, Chess, Carrom, and Cricket",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a home-screen slider/carousel with banner images for Ludo, Chess, and Carrom",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add a simple home menu for quick navigation so players can jump straight into each game mode from the home screen",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update UI to match the provided reference pages, apply the referenced Ludo design style, and remove the 'Create Game' option from the app UI",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Multi-game app with Ludo, Chess, Carrom, and Cricket",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

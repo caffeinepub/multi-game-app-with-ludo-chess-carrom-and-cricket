@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Warm arcade palette - amber/orange/teal */
+        --background: 0.98 0.01 60;
+        --foreground: 0.25 0.02 40;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 40;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 40;
+        /* Primary: Warm amber */
+        --primary: 0.65 0.18 50;
+        --primary-foreground: 0.98 0.01 60;
+        /* Secondary: Soft orange */
+        --secondary: 0.92 0.05 45;
+        --secondary-foreground: 0.35 0.02 40;
+        --muted: 0.95 0.02 50;
+        --muted-foreground: 0.55 0.02 40;
+        /* Accent: Teal */
+        --accent: 0.70 0.12 180;
+        --accent-foreground: 0.98 0.01 60;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.88 0.02 50;
+        --input: 0.88 0.02 50;
+        --ring: 0.65 0.18 50;
+        --chart-1: 0.65 0.18 50;
+        --chart-2: 0.70 0.12 180;
+        --chart-3: 0.60 0.20 30;
+        --chart-4: 0.75 0.15 280;
+        --chart-5: 0.55 0.22 350;
+    }
+
+    .dark {
+        --background: 0.18 0.02 40;
+        --foreground: 0.95 0.01 60;
+        --card: 0.22 0.02 40;
+        --card-foreground: 0.95 0.01 60;
+        --popover: 0.20 0.02 40;
+        --popover-foreground: 0.95 0.01 60;
+        /* Primary: Bright amber */
+        --primary: 0.75 0.20 50;
+        --primary-foreground: 0.18 0.02 40;
+        /* Secondary: Muted orange */
+        --secondary: 0.30 0.03 45;
+        --secondary-foreground: 0.95 0.01 60;
+        --muted: 0.28 0.02 40;
+        --muted-foreground: 0.65 0.02 50;
+        /* Accent: Bright teal */
+        --accent: 0.75 0.15 180;
+        --accent-foreground: 0.18 0.02 40;
+        --destructive: 0.60 0.22 27;
+        --destructive-foreground: 0.95 0.01 60;
+        --border: 0.30 0.02 40;
+        --input: 0.30 0.02 40;
+        --ring: 0.75 0.20 50;
+        --chart-1: 0.75 0.20 50;
+        --chart-2: 0.75 0.15 180;
+        --chart-3: 0.70 0.22 30;
+        --chart-4: 0.80 0.18 280;
+        --chart-5: 0.65 0.25 350;
+    }
+
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+}
+
+@layer utilities {
+    .arcade-gradient {
+        background: linear-gradient(135deg, oklch(var(--background)) 0%, oklch(0.95 0.02 50) 100%);
+    }
+
+    .game-card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .game-card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px oklch(var(--primary) / 0.3);
+    }
+
+    /* Glassmorphism utilities for Ludo */
+    .ludo-glass-container {
+        position: relative;
+        min-height: calc(100vh - 120px);
+        background-image: url('/assets/generated/ludo-glass-bg.dim_1920x1080.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .ludo-glass-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, 
+            rgba(59, 130, 246, 0.3) 0%, 
+            rgba(147, 51, 234, 0.3) 50%, 
+            rgba(236, 72, 153, 0.3) 100%);
+        pointer-events: none;
+    }
+
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-panel::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('/assets/generated/glass-panel-texture.dim_1200x800.png');
+        background-size: cover;
+        opacity: 0.05;
+        pointer-events: none;
+    }
+
+    .glass-button {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: white !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .glass-button:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .glass-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .glass-button-outline {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: white !important;
+    }
+
+    .glass-button-outline:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .glass-input {
+        background: rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+    }
+
+    .glass-badge {
+        background: rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
