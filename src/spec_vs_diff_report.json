@@ -1,71 +1,29 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T19:45:49.122Z",
-  "summary": "Diff updates HomeScreen layout (header + hero + Quick Play), adds glassmorphism styling for Ludo via new CSS utilities and LudoScreen markup, and introduces a reusable GameShell glass header option. However, required static assets under /frontend/public/assets/generated are not added in the diff, and there is no clear evidence that all 'Create Game' UI has been removed everywhere.",
+  "generatedAt": "2026-02-15T19:52:44.691Z",
+  "summary": "The diff does not update any of the required static image assets under frontend/public/assets/generated. Only project_state.json was modified, which does not satisfy REQ-16.",
   "missing_requirements": [
     {
-      "id": "REQ-14",
-      "requirement": "Remove the 'Create Game' option from the app UI wherever it appears (buttons, menus, headings, or navigation actions), ensuring users can still start local games via existing flows.",
-      "reason": "The diff summary does not show any changes removing or renaming UI labeled 'Create Game'. Without seeing edits to any components that previously contained that label, this requirement cannot be verified as implemented.",
+      "id": "REQ-16",
+      "requirement": "Replace the current non-realistic visuals with more realistic images for Ludo, Chess, and Carrom, keeping the existing asset filenames/paths so the UI updates without changing navigation or gameplay.",
+      "reason": "No changes are shown to the PNG assets at /assets/generated/*, and there are no frontend/UI changes indicating updated images. The only modified file is project_state.json.",
       "evidence": [
-        "frontend/src/screens/HomeScreen.tsx",
-        "frontend/src/components/home/QuickPlayMenu.tsx",
-        "frontend/src/screens/GameShell.tsx",
-        "frontend/src/games/ludo/LudoScreen.tsx"
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "requirement": "Add new static visual assets under frontend/public/assets/generated and reference them via /assets/generated/... paths from HomeScreen and LudoScreen.",
-      "reason": "No files were added in the diff (\"Added: 0\"), but multiple new references point to /assets/generated/*.png. This indicates the code expects assets that are not present in the provided changes, risking broken links.",
-      "evidence": [
-        "frontend/src/games/ludo/LudoScreen.tsx (references /assets/generated/ludo-icon.dim_512x512.png)",
-        "frontend/src/index.css (references /assets/generated/ludo-glass-bg.dim_1920x1080.png and /assets/generated/glass-panel-texture.dim_1200x800.png)",
-        "frontend/src/screens/HomeScreen.tsx (references /assets/generated/*-icon.dim_512x512.png)"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "requirement": "HomeScreen hero section uses a prominent centered device/phone mock image and the referenced background/hero styling to resemble the provided reference image; responsive for mobile widths.",
-      "reason": "HomeScreen shows a new hero section structure and mentions a hero phone image container, but the diff is truncated before the actual image element and there is no evidence it uses the required generated assets (e.g., home-hero-phone.dim_900x900.png and ludo-glass-bg.dim_1920x1080.png) for the Home hero/background.",
-      "evidence": [
-        "frontend/src/screens/HomeScreen.tsx (truncated around 'Right: Hero Phone Image')"
+        "project_state.json (only modified file in diff summary; no asset files modified)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Global theme/palette overhaul using OKLCH variables and an 'arcade' gradient theme across the app.",
-      "reason": "BuildRequest focuses on matching provided reference pages and applying Ludo glassmorphism, plus asset wiring and removing 'Create Game'. A full global color-system/palette change is not explicitly requested and may affect non-target screens.",
+      "description": "Modified project_state.json (project metadata/state) without any requested requirement to do so.",
+      "reason": "BuildRequest only asks for replacing three existing image assets under frontend/public/assets/generated and explicitly focuses on visual asset replacement; changing project_state.json is not requested and does not contribute evidence of the required image updates.",
       "evidence": [
-        "frontend/src/index.css"
-      ]
-    },
-    {
-      "description": "New/expanded 'Quick Play' menu section with styled game launch buttons.",
-      "reason": "Not explicitly requested as a requirement (REQ-12 asks for a header + hero image + headline/subheadline while keeping navigation). Adding a new Quick Play section is additional UI beyond the stated acceptance criteria.",
-      "evidence": [
-        "frontend/src/components/home/QuickPlayMenu.tsx",
-        "frontend/src/screens/HomeScreen.tsx"
-      ]
-    },
-    {
-      "description": "New 'GameShell' optional glassHeader mode for screens.",
-      "reason": "Not explicitly requested; REQ-13 targets Ludo pre-game and HUD styling. Introducing a generalized glass header option is extra functionality (though it supports the styling goal).",
-      "evidence": [
-        "frontend/src/screens/GameShell.tsx"
+        "project_state.json"
       ]
     }
   ],
-  "confidence": 0.68,
+  "confidence": 0.78,
   "changed_files": [
-    "frontend-file-summaries.txt",
-    "frontend/src/components/home/QuickPlayMenu.tsx",
-    "frontend/src/games/ludo/LudoScreen.tsx",
-    "frontend/src/index.css",
-    "frontend/src/screens/GameShell.tsx",
-    "frontend/src/screens/HomeScreen.tsx",
     "project_state.json"
   ]
 }

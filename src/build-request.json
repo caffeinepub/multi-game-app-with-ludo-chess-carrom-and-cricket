@@ -1,101 +1,47 @@
 {
   "kind": "build_request",
-  "title": "Update UI to match provided reference pages, apply referenced Ludo design style, and remove 'Create Game' UI",
+  "title": "Replace non-realistic game visuals with more realistic images (Ludo, Chess, Carrom)",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-12",
-      "text": "Update the Home screen UI layout and styling to closely match the look/structure shown in the uploaded reference image (Screenshot_20260131_000048.jpg): a clean top header, a prominent hero section with a centered device/phone mock image, and large, bold headline + subheadline text; keep the existing ability to navigate into Ludo/Chess/Carrom/Cricket via the existing onSelectGame(game) flow.",
+      "id": "REQ-16",
+      "text": "Replace the current non-realistic visuals with more realistic images for Ludo, Chess, and Carrom, keeping the existing asset filenames/paths so the UI updates without changing navigation or gameplay.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "I need this kind of ui Page exist content"
+          "Game not realistic picture such as ludo chess carrom"
         ]
       },
       "acceptanceCriteria": [
-        "HomeScreen remains the app landing screen and still allows entering each of the four game modes using the existing onSelectGame(game) callback.",
-        "HomeScreen hero section is visually reworked to resemble the reference: header + prominent hero image + headline + subheadline, and is responsive for mobile widths.",
-        "Any user-facing text added/modified for this change is in English."
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "text": "Apply the visual style shown in the uploaded reference image (Screenshot_20260129_125437.jpg) to the Ludo game experience: use a modern glassmorphism look (blurred/soft gradient background, translucent rounded card panels, strong primary CTA button) for the Ludo pre-game setup screen and in-game HUD panels, without changing Ludo gameplay rules.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "2nd one is ludo design I need that kind of design"
-        ]
-      },
-      "acceptanceCriteria": [
-        "LudoScreen (both the pre-game setup state and active game state) uses a glassmorphism-styled layout (translucent panels, rounded corners, subtle blur/gradient background).",
-        "Ludo gameplay (dice roll, turn logic, piece movement, win detection) behaves exactly as before; only UI/visual presentation changes.",
-        "Any user-facing text added/modified for this change is in English."
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "text": "Remove the 'Create Game' option from the app UI wherever it appears (buttons, menus, headings, or navigation actions), ensuring users can still start local games via existing 'Start Game/New Game/Quick Play' flows.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "remove create game I don't need and want"
-        ]
-      },
-      "acceptanceCriteria": [
-        "No visible UI element in the app contains the label 'Create Game'.",
-        "Users can still start and replay games in all modes (Ludo/Chess/Carrom/Cricket) using the existing local-play flows.",
-        "No backend changes are required for this removal."
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "text": "Add new static visual assets to support the updated Home hero and Ludo glassmorphism styling, store them under frontend/public/assets/generated, and wire the updated screens to use them directly from that folder.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All newly generated images are saved under frontend/public/assets/generated and referenced via /assets/generated/... paths (no backend image serving).",
-        "HomeScreen and LudoScreen successfully load and render the newly added assets without broken links."
+        "The images at /assets/generated/ludo-icon.dim_512x512.png, /assets/generated/chess-icon.dim_512x512.png, and /assets/generated/carrom-icon.dim_512x512.png are updated to look more realistic (photorealistic or realistic 3D render style).",
+        "HomeScreen game cards render the updated images (no broken links; images remain 512x512 and look crisp when shown in the square thumbnail).",
+        "No changes to game rules, game logic, or navigation flow (onSelectGame continues to work as-is)."
       ]
     }
   ],
   "constraints": [
-    "Frontend files under frontend/src/components/ui must not be edited directly; compose them instead.",
-    "Frontend files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, and frontend/src/main.tsx are immutable and must not be modified.",
-    "Backend must remain a single Motoko actor in backend/main.mo; do not introduce additional backend services."
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything under frontend/src/components/ui.",
+    "Do not introduce any new backend canisters or external services; use static assets served from frontend/public/assets/generated."
   ],
   "nonGoals": [
-    "Do not implement phone-number/password based authentication or a 'Create Account' system (Internet Identity remains the only auth).",
-    "Do not add real-time multiplayer or online matchmaking.",
-    "Do not change the rules/logic of any game mode; this request is UI/visual-design focused."
+    "Do not change gameplay mechanics for Ludo, Chess, or Carrom.",
+    "Do not add multiplayer/online play or any real-time features."
   ],
   "imageRequirements": {
-    "required": [
-      "Soft gradient background with subtle bokeh/light streaks (ludo-glass-bg.dim_1920x1080.png)",
-      "Centered smartphone device mock with a generic Ludo-themed screen (home-hero-phone.dim_900x900.png)",
-      "Abstract soft gradient texture for glass panels (glass-panel-texture.dim_1200x800.png)"
-    ],
-    "edits": []
+    "required": [],
+    "edits": [
+      "Make the Ludo image more realistic (ludo-icon.dim_512x512.png > ludo-icon.dim_512x512.png)",
+      "Make the Chess image more realistic (chess-icon.dim_512x512.png > chess-icon.dim_512x512.png)",
+      "Make the Carrom image more realistic (carrom-icon.dim_512x512.png > carrom-icon.dim_512x512.png)"
+    ]
   },
   "userProfileUpdate": {
     "goalsToAdd": [],
     "goalsToRemove": [],
-    "preferencesToAdd": [
-      "User prefers UI styled to match provided reference screenshots; wants glassmorphism style for Ludo and removal of 'Create Game' UI."
-    ],
+    "preferencesToAdd": [],
     "preferencesToRemove": [],
     "miscToAdd": [],
     "miscToRemove": [],

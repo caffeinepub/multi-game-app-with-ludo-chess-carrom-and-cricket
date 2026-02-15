@@ -1,11 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
+  "projectStateVersion": 11,
   "summary": "Game application that includes multiple games: Ludo, Chess, Carrom, and Cricket.",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Soft gradient background with subtle bokeh/light streaks (ludo-glass-bg.dim_1920x1080.png)\n- Centered smartphone device mock with a generic Ludo-themed screen (home-hero-phone.dim_900x900.png)\n- Abstract soft gradient texture for glass panels (glass-panel-texture.dim_1200x800.png)",
+  "known_issues": [
+    "Current game images/visuals for Ludo, Chess, and Carrom are perceived as not realistic by the user"
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Edit Images\n- Make the Ludo image more realistic (ludo-icon.dim_512x512.png > ludo-icon.dim_512x512.png)\n- Make the Chess image more realistic (chess-icon.dim_512x512.png > chess-icon.dim_512x512.png)\n- Make the Carrom image more realistic (carrom-icon.dim_512x512.png > carrom-icon.dim_512x512.png)",
   "existing_features": [
     {
       "id": "feature-create-a-unified-game-application-home-experience-that-lets-users-choose-between-four-game-modes-ludo-chess-carrom-and-cricket-and-provides-consistent-navigation-to-enter-exit-a-game-back-to-the-home-screen",
@@ -126,6 +128,14 @@
         "REQ-15"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-non-realistic-visuals-with-more-realistic-images-for-ludo-chess-and-carrom-keeping-the-existing-asset-filenames-paths-so-the-ui-updates-without-changing-navigation-or-gameplay",
+      "title": "Replace the current non-realistic visuals with more realistic images for Ludo, Chess, and Carrom, keeping the existing asset filenames/paths so the UI updates without changing navigation or gameplay.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -174,6 +184,12 @@
     {
       "id": "AR-8",
       "summary": "Update UI to match the provided reference pages, apply the referenced Ludo design style, and remove the 'Create Game' option from the app UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Replace current non-realistic game visuals with more realistic images for Ludo, Chess, and Carrom",
       "reqIds": [],
       "status": "pending"
     }
