@@ -1,28 +1,60 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T19:52:44.693Z",
+  "generatedAt": "2026-02-17T08:54:54.100Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-16",
-        "summary": "Replace the current non-realistic visuals with more realistic images for Ludo, Chess, and Carrom, keeping the existing asset filenames/paths so the UI updates without changing navigation or gameplay.",
+        "id": "REQ-22",
+        "summary": "Update the Home banner carousel to use improved, more modern slide designs while keeping exactly 3 slides (Ludo, Chess, Carrom) and keeping the existing banner image filenames/paths used by the carousel component.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/home-banner-ludo.dim_1600x600.png",
+          "frontend/public/assets/generated/home-banner-chess.dim_1600x600.png",
+          "frontend/public/assets/generated/home-banner-carrom.dim_1600x600.png",
+          "frontend/src/components/home/HomeBannerCarousel.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/home-banner-ludo.dim_1600x600.png",
+          "frontend/public/assets/generated/home-banner-chess.dim_1600x600.png",
+          "frontend/public/assets/generated/home-banner-carrom.dim_1600x600.png",
+          "frontend/src/components/home/HomeBannerCarousel.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Replace the HomeScreen game icon images for Ludo, Chess, and Carrom with more realistic, modern-looking icons while keeping the existing icon image filenames/paths used by HomeScreen.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/public/assets/generated/ludo-icon.dim_512x512.png",
           "frontend/public/assets/generated/chess-icon.dim_512x512.png",
-          "frontend/public/assets/generated/carrom-icon.dim_512x512.png"
+          "frontend/public/assets/generated/carrom-icon.dim_512x512.png",
+          "frontend/src/screens/HomeScreen.tsx"
         ],
         "matchedFiles": [
           "frontend/public/assets/generated/ludo-icon.dim_512x512.png",
           "frontend/public/assets/generated/chess-icon.dim_512x512.png",
-          "frontend/public/assets/generated/carrom-icon.dim_512x512.png"
+          "frontend/public/assets/generated/carrom-icon.dim_512x512.png",
+          "frontend/src/screens/HomeScreen.tsx"
+        ]
+      },
+      {
+        "id": "REQ-24",
+        "summary": "Update the Quick Play section visuals to better match the uploaded reference image (IMG_20260217_142015.jpg) by using the new realistic game icons (image-based) instead of the current Lucide vector icons, while preserving the existing Quick Play titles/subtitle text and the onSelectGame(game) behavior.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/home/QuickPlayMenu.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/home/QuickPlayMenu.tsx",
+          "frontend/src/index.css"
         ]
       }
     ]
@@ -30,10 +62,18 @@
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/public/assets/generated/carrom-icon.dim_512x512.png",
     "frontend/public/assets/generated/chess-icon.dim_512x512.png",
+    "frontend/public/assets/generated/home-banner-carrom.dim_1600x600.png",
+    "frontend/public/assets/generated/home-banner-chess.dim_1600x600.png",
+    "frontend/public/assets/generated/home-banner-ludo.dim_1600x600.png",
     "frontend/public/assets/generated/ludo-icon.dim_512x512.png",
+    "frontend/src/components/home/HomeBannerCarousel.tsx",
+    "frontend/src/components/home/QuickPlayMenu.tsx",
+    "frontend/src/index.css",
+    "frontend/src/screens/HomeScreen.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

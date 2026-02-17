@@ -3,9 +3,8 @@ import HomeScreen from './screens/HomeScreen';
 import LudoScreen from './games/ludo/LudoScreen';
 import ChessScreen from './games/chess/ChessScreen';
 import CarromScreen from './games/carrom/CarromScreen';
-import CricketScreen from './games/cricket/CricketScreen';
 
-export type GameMode = 'home' | 'ludo' | 'chess' | 'carrom' | 'cricket';
+export type GameMode = 'home' | 'ludo' | 'chess' | 'carrom';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<GameMode>('home');
@@ -24,7 +23,6 @@ export default function App() {
       {currentView === 'ludo' && <LudoScreen onBackToHome={navigateToHome} />}
       {currentView === 'chess' && <ChessScreen onBackToHome={navigateToHome} />}
       {currentView === 'carrom' && <CarromScreen onBackToHome={navigateToHome} />}
-      {currentView === 'cricket' && <CricketScreen onBackToHome={navigateToHome} />}
     </div>
   );
 }

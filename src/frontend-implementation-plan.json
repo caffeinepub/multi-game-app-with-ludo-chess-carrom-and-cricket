@@ -1,31 +1,88 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update Ludo, Chess, and Carrom icons to realistic images without changing asset paths",
+  "title": "Game Arcade: Modernize Home banners and replace game icons with realistic visuals",
   "requirements": [
     {
-      "id": "REQ-16",
-      "summary": "Replace Ludo/Chess/Carrom icon assets with more realistic visuals while keeping the same filenames/paths so the existing HomeScreen game cards update automatically and navigation/gameplay remain unchanged.",
+      "id": "REQ-22",
+      "summary": "Modernize the Home banner carousel visuals while keeping exactly 3 slides and preserving existing banner image paths and carousel behavior.",
       "acceptanceCriteria": [
-        "The images at /assets/generated/ludo-icon.dim_512x512.png, /assets/generated/chess-icon.dim_512x512.png, and /assets/generated/carrom-icon.dim_512x512.png are updated to look more realistic (photorealistic or realistic 3D render style).",
-        "HomeScreen game cards render the updated images (no broken links; images remain 512x512 and look crisp when shown in the square thumbnail).",
-        "No changes to game rules, game logic, or navigation flow (onSelectGame continues to work as-is)."
+        "The Home banner carousel still shows exactly 3 slides (Ludo, Chess, Carrom) and continues to auto-rotate and allow manual navigation (arrows + dots).",
+        "The carousel continues to reference these exact paths: /assets/generated/home-banner-ludo.dim_1600x600.png, /assets/generated/home-banner-chess.dim_1600x600.png, /assets/generated/home-banner-carrom.dim_1600x600.png.",
+        "The new banner images look more realistic and modern than the current ones (no cartoonish/flat placeholders)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/home-banner-ludo.dim_1600x600.png",
+          "operation": "modify",
+          "description": "Replace the existing banner asset with a modern, realistic premium-looking Ludo banner while keeping the exact filename/path."
+        },
+        {
+          "path": "frontend/public/assets/generated/home-banner-chess.dim_1600x600.png",
+          "operation": "modify",
+          "description": "Replace the existing banner asset with a modern, realistic premium-looking Chess banner while keeping the exact filename/path."
+        },
+        {
+          "path": "frontend/public/assets/generated/home-banner-carrom.dim_1600x600.png",
+          "operation": "modify",
+          "description": "Replace the existing banner asset with a modern, realistic premium-looking Carrom banner while keeping the exact filename/path."
+        },
+        {
+          "path": "frontend/src/components/home/HomeBannerCarousel.tsx",
+          "operation": "modify",
+          "description": "Refine carousel presentation styling (no changes to slide count, image paths, auto-rotation timing, arrows, or dots) to better showcase the updated modern banner designs."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Replace HomeScreen game icon images (Ludo/Chess/Carrom) with realistic modern icons while preserving existing icon asset paths and card layout.",
+      "acceptanceCriteria": [
+        "HomeScreen continues to reference these exact paths: /assets/generated/ludo-icon.dim_512x512.png, /assets/generated/chess-icon.dim_512x512.png, /assets/generated/carrom-icon.dim_512x512.png.",
+        "The updated icon images are visually realistic/modern and render correctly in the \"All Games\" grid cards without layout breakage."
       ],
       "file_operations": [
         {
           "path": "frontend/public/assets/generated/ludo-icon.dim_512x512.png",
           "operation": "modify",
-          "description": "Replace the existing Ludo icon with a more realistic (photorealistic or realistic 3D render) 512x512 image, keeping the exact same filename/path so existing UI references continue to work."
+          "description": "Replace the existing Ludo icon asset with a modern, realistic square icon while keeping the exact filename/path."
         },
         {
           "path": "frontend/public/assets/generated/chess-icon.dim_512x512.png",
           "operation": "modify",
-          "description": "Replace the existing Chess icon with a more realistic (photorealistic or realistic 3D render) 512x512 image, keeping the exact same filename/path so existing UI references continue to work."
+          "description": "Replace the existing Chess icon asset with a modern, realistic square icon while keeping the exact filename/path."
         },
         {
           "path": "frontend/public/assets/generated/carrom-icon.dim_512x512.png",
           "operation": "modify",
-          "description": "Replace the existing Carrom icon with a more realistic (photorealistic or realistic 3D render) 512x512 image, keeping the exact same filename/path so existing UI references continue to work."
+          "description": "Replace the existing Carrom icon asset with a modern, realistic square icon while keeping the exact filename/path."
+        },
+        {
+          "path": "frontend/src/screens/HomeScreen.tsx",
+          "operation": "modify",
+          "description": "Adjust the 'All Games' card image presentation (e.g., object-fit, overlays) as needed to ensure the updated realistic icons render cleanly without layout regressions, while keeping the referenced icon paths unchanged and not reintroducing Cricket."
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Update Quick Play visuals to match the reference by using the realistic image icons instead of Lucide icons, while preserving text and onSelectGame behavior.",
+      "acceptanceCriteria": [
+        "Quick Play buttons still navigate correctly using the existing onSelectGame(game) flow for ludo/chess/carrom.",
+        "Quick Play tiles display image icons for Ludo/Chess/Carrom (using the existing generated icon assets) rather than Lucide icons.",
+        "The Quick Play section keeps English user-facing text (e.g., \"Quick Play\" and \"Jump straight into your favorite game\").",
+        "Quick Play layout remains a 3-item grid and stays visually consistent across common breakpoints (mobile/tablet/desktop)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/QuickPlayMenu.tsx",
+          "operation": "modify",
+          "description": "Replace Lucide vector icons with image-based icons using the existing generated assets (/assets/generated/ludo-icon.dim_512x512.png, /assets/generated/chess-icon.dim_512x512.png, /assets/generated/carrom-icon.dim_512x512.png), keep current titles/subtitle text, preserve onSelectGame(game) behavior, and tune responsive styling to match the uploaded reference while maintaining a 3-item grid."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add or adjust non-UI-component global utility styles (if needed) to support the updated Quick Play tile look (spacing, borders, shadows) without modifying any files under frontend/src/components/ui."
         }
       ]
     }

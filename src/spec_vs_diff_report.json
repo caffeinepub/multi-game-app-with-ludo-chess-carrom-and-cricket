@@ -1,29 +1,52 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T19:52:44.691Z",
-  "summary": "The diff does not update any of the required static image assets under frontend/public/assets/generated. Only project_state.json was modified, which does not satisfy REQ-16.",
+  "generatedAt": "2026-02-17T08:54:54.097Z",
+  "summary": "REQ-22/23/24 appear implemented at the component level: the banner carousel remains 3 slides with the required image paths and has auto-rotate + arrows + dots; HomeScreen and Quick Play reference the required generated icon paths and Quick Play uses image icons while preserving text and onSelectGame. However, the diff shows no new/updated image assets, so the required modern/realistic visuals themselves are not evidenced. The diff also includes broader global styling/theme additions not explicitly requested.",
   "missing_requirements": [
     {
-      "id": "REQ-16",
-      "requirement": "Replace the current non-realistic visuals with more realistic images for Ludo, Chess, and Carrom, keeping the existing asset filenames/paths so the UI updates without changing navigation or gameplay.",
-      "reason": "No changes are shown to the PNG assets at /assets/generated/*, and there are no frontend/UI changes indicating updated images. The only modified file is project_state.json.",
+      "id": "REQ-22",
+      "requirement": "Provide updated modern/realistic banner images at the existing referenced paths (/assets/generated/home-banner-*.dim_1600x600.png).",
+      "reason": "The carousel continues to reference the required filenames, but the diff shows no added/modified image assets; the 'realistic/modern' visual update cannot be satisfied without updating those files.",
       "evidence": [
-        "project_state.json (only modified file in diff summary; no asset files modified)"
+        "File diff summary: Added: 0 (no asset files added/changed)",
+        "frontend/src/components/home/HomeBannerCarousel.tsx (references existing banner paths only)"
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "requirement": "Provide updated modern/realistic icon images at the existing referenced paths (/assets/generated/*-icon.dim_512x512.png).",
+      "reason": "Code references the existing icon paths, but the diff shows no added/modified image assets; the 'realistic/modern' icon update cannot be verified/fulfilled from the shown changes.",
+      "evidence": [
+        "File diff summary: Added: 0 (no asset files added/changed)",
+        "frontend/src/screens/HomeScreen.tsx (references existing icon paths only)",
+        "frontend/src/components/home/QuickPlayMenu.tsx (references existing icon paths only)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Modified project_state.json (project metadata/state) without any requested requirement to do so.",
-      "reason": "BuildRequest only asks for replacing three existing image assets under frontend/public/assets/generated and explicitly focuses on visual asset replacement; changing project_state.json is not requested and does not contribute evidence of the required image updates.",
+      "description": "Global theme overhaul in index.css (warm arcade palette using OKLCH variables, new utilities, and extensive styling changes).",
+      "reason": "BuildRequest focuses on modernizing home slider designs and replacing specific home icons/quick play visuals; it does not request a global color/theme system update.",
       "evidence": [
-        "project_state.json"
+        "frontend/src/index.css"
+      ]
+    },
+    {
+      "description": "Added/expanded 'glassmorphism' utilities and Ludo-specific background styling hooks (e.g., .ludo-glass-container referencing ludo-glass-bg.dim_1920x1080.png).",
+      "reason": "BuildRequest explicitly lists non-goals including no gameplay changes and does not request new Ludo screen background/visual system or new assets beyond the specified home banners/icons.",
+      "evidence": [
+        "frontend/src/index.css"
       ]
     }
   ],
-  "confidence": 0.78,
+  "confidence": 0.72,
   "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/home/HomeBannerCarousel.tsx",
+    "frontend/src/components/home/QuickPlayMenu.tsx",
+    "frontend/src/index.css",
+    "frontend/src/screens/HomeScreen.tsx",
     "project_state.json"
   ]
 }

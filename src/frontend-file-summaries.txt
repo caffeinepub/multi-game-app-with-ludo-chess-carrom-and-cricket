@@ -1,10 +1,10 @@
 {
-  "frontend/src/index.css": "Global styles with warm arcade theme, OKLCH color system, and new glassmorphism utilities for Ludo (translucent panels, backdrop blur, glass buttons, and background treatment using generated assets).",
-  "frontend/src/App.tsx": "Main app component managing view state navigation between home screen and four game modes (Ludo, Chess, Carrom, Cricket).",
-  "frontend/src/screens/HomeScreen.tsx": "Home screen with hero section featuring centered phone mockup image, bold headline \"LUDO GAME SOURCE CODE\", Quick Play menu, stats summary for authenticated users, and game selection grid with navigation to all four game modes.",
+  "frontend/src/index.css": "Global styles with warm arcade theme, OKLCH color system, glassmorphism utilities for Ludo, and new quick-play-card hover utilities for enhanced card interactions.",
+  "frontend/src/App.tsx": "Main app component managing view state navigation between home screen and three game modes (Ludo, Chess, Carrom), with Cricket removed from the GameMode union and navigation.",
+  "frontend/src/screens/HomeScreen.tsx": "Home screen with sticky header, full-width banner carousel at top, Quick Play menu with image icons, stats summary for authenticated users, and game selection grid showing only Ludo, Chess, and Carrom with realistic icon images and gradient backgrounds.",
   "frontend/src/screens/GameShell.tsx": "Reusable layout wrapper for all game screens with optional glassmorphism header treatment, back button, title, icon, and action slots.",
   "frontend/src/components/auth/LoginButton.tsx": "Login/logout button component using Internet Identity with loading states and query cache clearing on logout.",
-  "frontend/src/components/stats/StatsSummary.tsx": "Stats display component showing games played, wins, and win rate for all four game modes with loading states.",
+  "frontend/src/components/stats/StatsSummary.tsx": "Stats display component showing games played, wins, and win rate for three game modes (Ludo, Chess, Carrom) with loading states and responsive 3-column layout.",
   "frontend/src/hooks/useUserStats.ts": "React Query hooks for fetching and updating user game statistics from the backend.",
   "frontend/src/hooks/useQueries.ts": "React Query hooks for user profile management (get and save caller profile).",
   "frontend/src/games/ludo/LudoScreen.tsx": "Ludo game screen with glassmorphism-styled UI (translucent panels, blurred background), player setup, dice rolling, turn management, and stats tracking on game completion.",
@@ -15,8 +15,9 @@
   "frontend/src/games/chess/ChessBoard.tsx": "Interactive 8x8 chess board with piece symbols, square selection highlighting, and click handling.",
   "frontend/src/games/carrom/CarromScreen.tsx": "Carrom game screen with player setup, angle/power controls, shot execution, scoring system, and stats tracking.",
   "frontend/src/games/carrom/carromPhysics.ts": "Simplified 2D physics simulation for carrom including coin collisions, pocketing, and score calculation.",
-  "frontend/src/games/carrom/CarromBoardCanvas.tsx": "Canvas-based carrom board renderer showing coins, pockets, aim line, and striker position.",
+  "frontend/src/games/carrom/CarromBoardCanvas.tsx": "Canvas-based carrom board renderer with realistic wood texture, depth-shaded pockets, gradient-filled coins with specular highlights and shadows, aim line, and striker position.",
   "frontend/src/games/cricket/CricketScreen.tsx": "Cricket game screen with innings management, shot selection, scoreboard display, and stats tracking.",
   "frontend/src/games/cricket/cricketEngine.ts": "Deterministic cricket game engine with seeded RNG, shot outcomes based on risk levels, and match winner determination.",
-  "frontend/src/components/home/QuickPlayMenu.tsx": "Quick Play menu component with enhanced styling displaying four game launch buttons (Ludo, Chess, Carrom, Cricket) with icons and hover effects."
+  "frontend/src/components/home/QuickPlayMenu.tsx": "Quick Play menu component displaying three game launch buttons (Ludo, Chess, Carrom) with realistic image icons from generated assets, gradient backgrounds, and enhanced hover effects in a responsive 3-column grid.",
+  "frontend/src/components/home/HomeBannerCarousel.tsx": "Full-width responsive banner carousel component that auto-cycles through 3 realistic game slides (Ludo, Chess, Carrom) with enhanced navigation arrows, improved dot indicators with backdrop blur, and smooth scale transitions."
 }

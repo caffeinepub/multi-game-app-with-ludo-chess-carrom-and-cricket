@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-current-non-realistic-visuals-with-more-realistic-images-for-ludo-chess-and-carrom-keeping-the-existing-asset-filenames-paths-so-the-ui-updates-without-changing-navigation-or-gameplay",
-      "featureTitle": "Replace the current non-realistic visuals with more realistic images for Ludo, Chess, and Carrom, keeping the existing asset filenames/paths so the UI updates without changing navigation or gameplay.",
-      "files": [],
+      "featureId": "feature-update-the-home-banner-carousel-to-use-improved-more-modern-slide-designs-while-keeping-exactly-3-slides-ludo-chess-carrom-and-keeping-the-existing-banner-image-filenames-paths-used-by-the-carousel-component",
+      "featureTitle": "Update the Home banner carousel to use improved, more modern slide designs while keeping exactly 3 slides (Ludo, Chess, Carrom) and keeping the existing banner image filenames/paths used by the carousel component.",
+      "files": [
+        "frontend/src/components/home/HomeBannerCarousel.tsx"
+      ],
       "components": [
         "authorization@4.0.0",
         "core-infrastructure@1.0.2",
@@ -14,7 +16,46 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-16"
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-the-homescreen-game-icon-images-for-ludo-chess-and-carrom-with-more-realistic-modern-looking-icons-while-keeping-the-existing-icon-image-filenames-paths-used-by-homescreen",
+      "featureTitle": "Replace the HomeScreen game icon images for Ludo, Chess, and Carrom with more realistic, modern-looking icons while keeping the existing icon image filenames/paths used by HomeScreen.",
+      "files": [
+        "frontend/src/screens/HomeScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-quick-play-section-visuals-to-better-match-the-uploaded-reference-image-img-20260217-142015-jpg-by-using-the-new-realistic-game-icons-image-based-instead-of-the-current-lucide-vector-icons-while-preserving-the-existing-quick-play-titles-subtitle-text-and-the-onselectgame-game-behavior",
+      "featureTitle": "Update the Quick Play section visuals to better match the uploaded reference image (IMG_20260217_142015.jpg) by using the new realistic game icons (image-based) instead of the current Lucide vector icons, while preserving the existing Quick Play titles/subtitle text and the onSelectGame(game) behavior.",
+      "files": [
+        "frontend/src/components/home/QuickPlayMenu.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
       ],
       "confidence": "high"
     }

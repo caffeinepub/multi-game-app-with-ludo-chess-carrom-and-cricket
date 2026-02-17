@@ -8,7 +8,6 @@ const gameIcons = [
   { icon: Dices, name: 'Ludo', color: 'text-chart-1' },
   { icon: Crown, name: 'Chess', color: 'text-chart-2' },
   { icon: Target, name: 'Carrom', color: 'text-chart-3' },
-  { icon: Trophy, name: 'Cricket', color: 'text-chart-4' },
 ];
 
 export default function StatsSummary() {
@@ -21,8 +20,8 @@ export default function StatsSummary() {
           <CardTitle>Your Stats</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((i) => (
+          <div className="grid grid-cols-3 gap-4">
+            {[1, 2, 3].map((i) => (
               <Skeleton key={i} className="h-24" />
             ))}
           </div>
@@ -46,7 +45,7 @@ export default function StatsSummary() {
     );
   }
 
-  const gameModes = [stats.gameMode1, stats.gameMode2, stats.gameMode3, stats.gameMode4];
+  const gameModes = [stats.gameMode1, stats.gameMode2, stats.gameMode3];
 
   return (
     <Card>
@@ -57,7 +56,7 @@ export default function StatsSummary() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {gameModes.map((mode, index) => {
             const { icon: Icon, name, color } = gameIcons[index];
             const winRate =

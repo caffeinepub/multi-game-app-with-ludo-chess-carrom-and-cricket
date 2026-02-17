@@ -88,6 +88,15 @@
         box-shadow: 0 12px 24px -8px oklch(var(--primary) / 0.3);
     }
 
+    .quick-play-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .quick-play-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px -12px oklch(var(--primary) / 0.4);
+    }
+
     /* Glassmorphism utilities for Ludo */
     .ludo-glass-container {
         position: relative;

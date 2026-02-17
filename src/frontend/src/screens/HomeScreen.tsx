@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import LoginButton from '@/components/auth/LoginButton';
 import StatsSummary from '@/components/stats/StatsSummary';
 import QuickPlayMenu from '@/components/home/QuickPlayMenu';
+import HomeBannerCarousel from '@/components/home/HomeBannerCarousel';
 import { useInternetIdentity } from '@/hooks/useInternetIdentity';
-import { Dices, Crown, Target, Trophy } from 'lucide-react';
+import { Trophy, Sparkles } from 'lucide-react';
 import type { GameMode } from '../App';
 
 interface HomeScreenProps {
@@ -18,32 +18,21 @@ const games = [
     name: 'Ludo',
     description: 'Classic board game for 2-4 players',
     icon: '/assets/generated/ludo-icon.dim_512x512.png',
-    IconComponent: Dices,
-    color: 'text-chart-1',
+    gradient: 'from-chart-1/20 to-chart-1/5',
   },
   {
     id: 'chess' as GameMode,
     name: 'Chess',
     description: 'Strategic two-player battle',
     icon: '/assets/generated/chess-icon.dim_512x512.png',
-    IconComponent: Crown,
-    color: 'text-chart-2',
+    gradient: 'from-chart-2/20 to-chart-2/5',
   },
   {
     id: 'carrom' as GameMode,
     name: 'Carrom',
     description: 'Flick and pocket coins',
     icon: '/assets/generated/carrom-icon.dim_512x512.png',
-    IconComponent: Target,
-    color: 'text-chart-3',
-  },
-  {
-    id: 'cricket' as GameMode,
-    name: 'Cricket',
-    description: 'Hit runs and take wickets',
-    icon: '/assets/generated/cricket-icon.dim_512x512.png',
-    IconComponent: Trophy,
-    color: 'text-chart-4',
+    gradient: 'from-chart-3/20 to-chart-3/5',
   },
 ];
 
@@ -54,10 +43,10 @@ export default function HomeScreen({ onSelectGame }: HomeScreenProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border/50 backdrop-blur-sm bg-background/95">
+      <header className="border-b border-border/50 backdrop-blur-sm bg-background/95 sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
               <Trophy className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
@@ -69,51 +58,11 @@ export default function HomeScreen({ onSelectGame }: HomeScreenProps) {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left: Text Content */}
-              <div className="text-center md:text-left space-y-6">
-                <div className="space-y-4">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                    LUDO GAME
-                    <br />
-                    <span className="text-primary">SOURCE CODE</span>
-                  </h2>
-                  <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                    Ludo Game Development | Multiplayer Ludo Script
-                  </p>
-                </div>
-                <p className="text-base text-muted-foreground max-w-md">
-                  Launch your own multiplayer Ludo game platform with our premium source code. 
-                  Four classic games in one place. Play solo or with friends on the same device.
-                </p>
-                {!isAuthenticated && (
-                  <Badge variant="outline" className="text-sm py-2 px-4">
-                    Login to track your stats and achievements
-                  </Badge>
-                )}
-              </div>
-
-              {/* Right: Hero Phone Image */}
-              <div className="flex justify-center md:justify-end">
-                <div className="relative w-full max-w-md">
-                  <img
-                    src="/assets/generated/home-hero-phone.dim_900x900.png"
-                    alt="Ludo Game on Mobile"
-                    className="w-full h-auto drop-shadow-2xl"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Banner Carousel */}
+      <HomeBannerCarousel />
 
       {/* Main content */}
-      <main className="container mx-auto px-4 pb-16">
+      <main className="container mx-auto px-4 py-12">
         {/* Quick Play Menu */}
         <QuickPlayMenu onSelectGame={onSelectGame} />
 
@@ -124,28 +73,36 @@ export default function HomeScreen({ onSelectGame }: HomeScreenProps) {
           </div>
         )}
 
+        {!isAuthenticated && (
+          <div className="mb-12 text-center">
+            <Badge variant="outline" className="text-sm py-2 px-4 gap-2">
+              <Sparkles className="w-4 h-4" />
+              Login to track your stats and achievements
+            </Badge>
+          </div>
+        )}
+
         {/* Game selection grid */}
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold tracking-tight mb-2">All Games</h3>
-            <p className="text-muted-foreground">Choose from our collection of classic games</p>
+            <h3 className="text-3xl font-bold tracking-tight mb-2">All Games</h3>
+            <p className="text-muted-foreground text-lg">Choose from our collection of classic games</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {games.map((game) => (
               <Card
                 key={game.id}
-                className="game-card-hover cursor-pointer border-2 hover:border-primary/50 overflow-hidden transition-all"
+                className="game-card-hover cursor-pointer border-2 hover:border-primary/50 overflow-hidden transition-all group"
                 onClick={() => onSelectGame(game.id)}
               >
                 <CardHeader className="pb-4">
-                  <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden bg-muted/30">
+                  <div className={`relative w-full aspect-square mb-4 rounded-xl overflow-hidden bg-gradient-to-br ${game.gradient} shadow-inner`}>
                     <img
                       src={game.icon}
                       alt={game.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover p-6 transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                    <game.IconComponent className={`absolute bottom-3 right-3 w-8 h-8 ${game.color}`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <CardTitle className="text-xl">{game.name}</CardTitle>
                   <CardDescription>{game.description}</CardDescription>
@@ -153,7 +110,7 @@ export default function HomeScreen({ onSelectGame }: HomeScreenProps) {
                 <CardContent>
                   <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <span>Tap to play</span>
-                    <span className="text-primary">→</span>
+                    <span className="text-primary font-bold group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                 </CardContent>
               </Card>
@@ -163,7 +120,7 @@ export default function HomeScreen({ onSelectGame }: HomeScreenProps) {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 backdrop-blur-sm bg-background/95">
+      <footer className="border-t border-border/50 backdrop-blur-sm bg-background/95 mt-12">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
           <p>
             © {new Date().getFullYear()} Game Arcade • Built with ❤️ using{' '}

@@ -1,13 +1,14 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
-  "summary": "Game application that includes multiple games: Ludo, Chess, Carrom, and Cricket.",
+  "projectStateVersion": 15,
+  "summary": "Game application that includes multiple games: Ludo, Chess, and Carrom (Cricket removed).",
   "architectural_notes": [],
   "known_issues": [
-    "Current game images/visuals for Ludo, Chess, and Carrom are perceived as not realistic by the user"
+    "Current game images/visuals for Ludo, Chess, and Carrom are perceived as not realistic by the user",
+    "User feedback: current home slider/slide image content is not satisfactory; needs more modern, realistic icon/image design"
   ],
   "isFixRequest": true,
-  "imageRequirements": "## Edit Images\n- Make the Ludo image more realistic (ludo-icon.dim_512x512.png > ludo-icon.dim_512x512.png)\n- Make the Chess image more realistic (chess-icon.dim_512x512.png > chess-icon.dim_512x512.png)\n- Make the Carrom image more realistic (carrom-icon.dim_512x512.png > carrom-icon.dim_512x512.png)",
+  "imageRequirements": "## Required Images\n- Modern, realistic banner image with a premium look (home-banner-ludo.dim_1600x600.png)\n- Modern, realistic banner image with a premium look (home-banner-chess.dim_1600x600.png)\n- Modern, realistic banner image with a premium look (home-banner-carrom.dim_1600x600.png)\n- Modern, realistic square icon image (ludo-icon.dim_512x512.png)\n- Modern, realistic square icon image (chess-icon.dim_512x512.png)\n- Modern, realistic square icon image (carrom-icon.dim_512x512.png)",
   "existing_features": [
     {
       "id": "feature-create-a-unified-game-application-home-experience-that-lets-users-choose-between-four-game-modes-ludo-chess-carrom-and-cricket-and-provides-consistent-navigation-to-enter-exit-a-game-back-to-the-home-screen",
@@ -136,6 +137,70 @@
         "REQ-16"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-homescreen-hero-content-the-ludo-game-source-code-text-block-the-supporting-paragraph-content-and-the-phone-image-with-a-full-width-top-of-home-banner-slider-carousel-containing-exactly-3-realistic-slides-ludo-chess-and-carrom",
+      "title": "Replace the current HomeScreen hero content (the “LUDO GAME SOURCE CODE” text block, the supporting paragraph content, and the phone image) with a full-width, top-of-home banner slider/carousel containing exactly 3 realistic slides: Ludo, Chess, and Carrom.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-3-new-realistic-banner-images-as-static-assets-under-frontend-public-assets-generated-and-wire-the-homescreen-banner-slider-to-use-those-exact-filenames",
+      "title": "Add 3 new realistic banner images as static assets under `frontend/public/assets/generated/` and wire the HomeScreen banner slider to use those exact filenames.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-cricket-game-mode-from-the-app-ui-and-navigation-so-users-cannot-start-or-access-cricket-from-the-homescreen-quick-play-or-in-app-routing-state-navigation",
+      "title": "Remove the Cricket game mode from the app UI and navigation so users cannot start or access Cricket from the HomeScreen, Quick Play, or in-app routing/state navigation.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-authenticated-stats-ui-to-no-longer-show-cricket-statistics-in-the-statssummary-tiles-while-keeping-the-rest-of-the-stats-ui-functional-for-ludo-chess-and-carrom",
+      "title": "Update the authenticated stats UI to no longer show Cricket statistics in the StatsSummary tiles, while keeping the rest of the stats UI functional for Ludo, Chess, and Carrom.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-carrom-game-visuals-look-more-realistic-board-appearance-pockets-and-coin-rendering-without-changing-carrom-gameplay-rules-or-physics-behavior",
+      "title": "Make the Carrom game visuals look more realistic (board appearance, pockets, and coin rendering) without changing Carrom gameplay rules or physics behavior.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-banner-carousel-to-use-improved-more-modern-slide-designs-while-keeping-exactly-3-slides-ludo-chess-carrom-and-keeping-the-existing-banner-image-filenames-paths-used-by-the-carousel-component",
+      "title": "Update the Home banner carousel to use improved, more modern slide designs while keeping exactly 3 slides (Ludo, Chess, Carrom) and keeping the existing banner image filenames/paths used by the carousel component.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-homescreen-game-icon-images-for-ludo-chess-and-carrom-with-more-realistic-modern-looking-icons-while-keeping-the-existing-icon-image-filenames-paths-used-by-homescreen",
+      "title": "Replace the HomeScreen game icon images for Ludo, Chess, and Carrom with more realistic, modern-looking icons while keeping the existing icon image filenames/paths used by HomeScreen.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-quick-play-section-visuals-to-better-match-the-uploaded-reference-image-img-20260217-142015-jpg-by-using-the-new-realistic-game-icons-image-based-instead-of-the-current-lucide-vector-icons-while-preserving-the-existing-quick-play-titles-subtitle-text-and-the-onselectgame-game-behavior",
+      "title": "Update the Quick Play section visuals to better match the uploaded reference image (IMG_20260217_142015.jpg) by using the new realistic game icons (image-based) instead of the current Lucide vector icons, while preserving the existing Quick Play titles/subtitle text and the onSelectGame(game) behavior.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -154,12 +219,6 @@
     {
       "id": "AR-3",
       "summary": "Add Carrom game mode to the application",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Add Cricket game mode to the application",
       "reqIds": [],
       "status": "pending"
     },
@@ -190,6 +249,24 @@
     {
       "id": "AR-9",
       "summary": "Replace current non-realistic game visuals with more realistic images for Ludo, Chess, and Carrom",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Remove Cricket from the app (home page, game selection, and navigation)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Remove the current Home hero content and replace it with a full-width top-of-home 3-slide banner slider using realistic Ludo/Chess/Carrom slides",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Update the Home banner slider visuals to use more modern, realistic icons/images and improved slide designs",
       "reqIds": [],
       "status": "pending"
     }
